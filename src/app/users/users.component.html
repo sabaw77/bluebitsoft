@@ -1,0 +1,49 @@
+<section *ngIf="userList?.list" class=" my-2 bg-white rounded p-3">
+  <article class="mt-2 mb-3 d-flex justify-content-between">
+    <div>
+      <h2 class="mx-2 d-inline header">Users</h2>
+      <h3 class="d-inline total">{{userList.length}} Total</h3>
+    </div>
+  </article>
+  <article class="headerList d-flex justify-content-sm-center bg-white rounded p-sm-3 p-0 ">
+    <span class="col-sm-2 text-center">
+      Picture
+    </span>
+    <span class="col-sm-3 text-center">
+      Name
+    </span>
+    <span class="col-sm-2 text-center">
+      Age
+    </span>
+    <span class="col-sm-2 text-center">
+      Gender
+    </span>
+    <span class="col-sm-3 text-center">
+      More
+    </span>
+  </article>
+  <article *ngFor="let user of userList.list"
+    class="items  my-2 d-flex justify-content-sm-center align-items-center border rounded px-sm-3 py-3 px-0">
+    <span class="col-sm-2 d-flex justify-content-center">
+      <img [src]="user.picture" alt="user image">
+    </span>
+    <span [tooltip]="user.name" containerClass="d-lg-none d-inline" class="col-sm-3 text-center name">
+      {{user.name}}
+    </span>
+    <span class="col-sm-2 text-center">
+      {{user.age}}
+    </span>
+    <span class="col-sm-2 text-center">
+      {{user.gender}}
+    </span>
+    <span class="col-sm-3 d-flex justify-content-center">
+      <cross-icon (click)="deleteUser(user)">delete</cross-icon>
+    </span>
+  </article>
+  <div class="col-xs-12 col-12 d-flex justify-content-center">
+    <pagination [boundaryLinks]="true" [totalItems]="userList.length" [itemsPerPage]="filter.limit"
+      [(ngModel)]="filter.page" (pageChanged)="pageChanged($event)" class="pagination-sm" [maxSize]="6"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
+</section>

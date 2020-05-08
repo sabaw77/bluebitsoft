@@ -1,0 +1,53 @@
+article {
+  span {
+    min-width: 90px;
+  }
+}
+
+.headerList {
+  overflow: scroll;
+
+  span {
+    color: rgba(54, 54, 54, 0.904);
+    font-size: 18px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.header {
+  color: rgba(54, 54, 54, 0.904);
+}
+
+.total {
+  color: #3782a1;
+}
+
+cross-icon {
+  cursor: pointer;
+}
+
+.name {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-spacing: normal;
+  word-break: keep-all;
+}
+
+
+.tooltip {
+  background-color: darkgreen;
+}
+
+
+
+.items {
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
